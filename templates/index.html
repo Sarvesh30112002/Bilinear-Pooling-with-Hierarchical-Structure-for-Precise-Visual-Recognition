@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            animation: bounceIn 1s ease;
+        }
+
+        h1 {
+            color: #00ffff; /* Cyan color */
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: rainbowText 5s infinite alternate;
+        }
+
+        form {
+            margin-top: 20px;
+            animation: rotateIn 1s ease;
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+            padding: 12px;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            width: 200px;
+            transition: border-color 0.3s;
+            font-size: 16px;
+            background-color: transparent;
+            color: #555;
+            cursor: pointer;
+            outline: none;
+        }
+
+        input[type="file"]:focus {
+            border-color: #4CAF50;
+        }
+
+        input[type="submit"] {
+            margin-top: 10px;
+            padding: 12px 24px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            outline: none;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Animations */
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.8);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes rainbowText {
+            0% {
+                color: #00ffff;
+            }
+
+            25% {
+                color: #00ced1; /* Dark Turquoise */
+            }
+
+            50% {
+                color: #00bfff; /* Deep Sky Blue */
+            }
+
+            75% {
+                color: #1e90ff; /* Dodger Blue */
+            }
+
+            100% {
+                color: #00ffff;
+            }
+        }
+
+        @keyframes rotateIn {
+            from {
+                transform: rotate(-360deg);
+            }
+
+            to {
+                transform: rotate(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Upload an Image</h1>
+        <form action="/static/uploads/" method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <br>
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+
+    <footer style="position: fixed; bottom: 0; width: 100%; background-color: #1a1a1a; color: white; text-align: center; padding: 5px;">
+        &copy; Sarvesh Hadole And Team
+    </footer>
+</body>
+
+</html>

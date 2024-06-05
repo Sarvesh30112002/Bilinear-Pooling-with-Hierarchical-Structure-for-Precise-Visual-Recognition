@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #1a1a1a;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 50px 180px;
+    border-radius: 40px;
+    background: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.5s ease;
+}
+
+h1 {
+    color: #fff;
+    font-size: 46px;
+    margin-top: -40px;
+    margin-bottom: -20px;
+    animation: fadeIn 1s ease;
+}
+
+img {
+    position: relative;
+    top: 40px;
+    margin-top: 20px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
+    animation: zoomIn 1s ease;
+}
+
+p {
+    position: relative;
+    top: 30px;
+    margin-top: 20px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 32px;
+    animation: slideInUp 1s ease;
+    color: gold;
+}
+
+.text {
+    position: relative;
+    top: 10px;
+    width: 700px;
+    height: 150px;
+    margin: -5px auto;
+    padding: 0px;
+    border-radius: 10px;
+    resize: none;
+            /* Disable textarea resizing */
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+    line-height: 1.6;
+    color: #fff;
+    text-align: center;
+    animation: slideInUp 1s ease;
+    animation: fadeIn 1s ease;
+    scrollbar-width: thin;
+            /* Set scrollbar width */
+            scrollbar-color: #ccc transparent;
+            /* Set scrollbar color */
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Predicted Bird Species</h1>
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+        <p>{{ predicted_species }}</p>
+        <textarea class="text" readonly>{{ species_info.get(predicted_species, 'No information available') }}</textarea>
+    </div>
+
+    <footer style="position: fixed; bottom: 0; width: 100%; background-color: #1a1a1a; color: white; text-align: center; padding: 5px;">
+        &copy; Sarvesh Hadole And Team
+    </footer>
+
+</body>
+
+</html>
